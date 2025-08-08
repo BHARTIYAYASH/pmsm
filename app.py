@@ -10,10 +10,10 @@ app = Flask(__name__)
 
 # Load the model
 try:
-    model = joblib.load('best_model2.pkl')
+    model = joblib.load('best_model.pkl')
     print("Model loaded successfully!")
 except FileNotFoundError:
-    print("Warning: best_model2.pkl not found. Please ensure the file exists in the project directory.")
+    print("Warning: best_model.pkl not found. Please ensure the file exists in the project directory.")
     model = None
 
 FEATURE_NAMES = ['u_q', 'coolant', 'stator_winding', 'u_d', 'stator_tooth', 
@@ -40,12 +40,11 @@ def y_predict():
         i_d = float(request.form['i_d'])
         i_q = float(request.form['i_q'])
         stator_yoke = float(request.form['stator_yoke'])
-        ambient = float(request.form['ambient'])
         torque = float(request.form['torque'])
         
         print(f"Received values: u_q={u_q}, coolant={coolant}, stator_winding={stator_winding}, "
               f"u_d={u_d}, stator_tooth={stator_tooth}, motor_speed={motor_speed}, "
-              f"i_d={i_d}, i_q={i_q}, stator_yoke={stator_yoke}, ambient={ambient}, torque={torque}")
+              f"i_d={i_d}, i_q={i_q}, stator_yoke={stator_yoke}, torque={torque}")
         
         input_data = pd.DataFrame({
             'u_q': [u_q],
@@ -57,7 +56,6 @@ def y_predict():
             'i_d': [i_d],
             'i_q': [i_q],
             'stator_yoke': [stator_yoke],
-            'ambient': [ambient],
             'torque': [torque]
         })
 

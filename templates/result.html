@@ -3,199 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Result | PMSM Temperature Predictor</title>
+    <title>Prediction Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="bg-grid"></div>
-    <div class="bg-gradient"></div>
+    <div class="header">
+        <h1>Electric Motor Temperature</h1>
+    </div>
     
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <i class="fas fa-microchip brand-icon"></i>
-                <span class="brand-text">PMSM Analytics</span>
-            </div>
-            <div class="nav-status">
-                <div class="status-indicator">
-                    <div class="status-dot success"></div>
-                    <span>Prediction Complete</span>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="main-content result-page">
-        <div class="container">
-            <!-- Success Animation -->
-            <div class="success-animation">
-                <div class="success-circle">
-                    <i class="fas fa-check"></i>
-                </div>
-            </div>
-
-            <!-- Result Card -->
-            <div class="result-main-card">
-                <div class="result-header">
-                    <div class="result-badge">
-                        <i class="fas fa-brain"></i>
-                        <span>AI Analysis Complete</span>
-                    </div>
-                    <h1>Temperature Prediction Result</h1>
-                    <p>Your PMSM rotor temperature has been successfully predicted using advanced machine learning algorithms</p>
-                </div>
-
-                <div class="result-display">
-                    <div class="temperature-gauge">
-                        <div class="gauge-container">
-                            <div class="gauge-bg"></div>
-                            <div class="gauge-fill" style="--temp-percentage: 65%"></div>
-                            <div class="gauge-center">
-                                <div class="temp-icon">
-                                    <i class="fas fa-thermometer-three-quarters"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="result-details">
-                        <div class="main-result">
-                            <div class="result-label">Predicted Rotor Temperature</div>
-                            <div class="result-value">{{ prediction }}°C</div>
-                        </div>
-                        
-                        <div class="result-metrics">
-                            <div class="metric-item">
-                                <div class="metric-icon">
-                                    <i class="fas fa-bullseye"></i>
-                                </div>
-                                <div class="metric-content">
-                                    <div class="metric-value">99.2%</div>
-                                    <div class="metric-label">Model Accuracy</div>
-                                </div>
-                            </div>
-                            
-                            <div class="metric-item">
-                                <div class="metric-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="metric-content">
-                                    <div class="metric-value">47ms</div>
-                                    <div class="metric-label">Processing Time</div>
-                                </div>
-                            </div>
-                            
-                            <div class="metric-item">
-                                <div class="metric-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="metric-content">
-                                    <div class="metric-value">High</div>
-                                    <div class="metric-label">Confidence Level</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Temperature Status -->
-                <div class="temperature-status">
-                    <div class="status-indicator-large">
-                        <div class="status-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="status-content">
-                            <h3>Normal Operating Range</h3>
-                            <p>The predicted temperature is within safe operational parameters for PMSM motors</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="result-actions">
-                    <a href="/manual_predict" class="action-btn primary">
-                        <i class="fas fa-redo"></i>
-                        <span>New Prediction</span>
-                    </a>
-                    <a href="/" class="action-btn secondary">
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    <button class="action-btn tertiary" onclick="window.print()">
-                        <i class="fas fa-download"></i>
-                        <span>Export Result</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Additional Information -->
-            <div class="info-cards">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-info-circle"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>About This Prediction</h4>
-                        <p>This temperature prediction is based on a machine learning model trained on extensive PMSM operational data, providing reliable thermal management insights.</p>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Model Performance</h4>
-                        <p>Our AI model achieves 99.2% accuracy with sub-50ms response times, making it ideal for real-time motor monitoring applications.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 PMSM Analytics. Advanced Motor Temperature Prediction System.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">Documentation</a>
-                    <a href="#" class="footer-link">API Reference</a>
-                    <a href="#" class="footer-link">Support</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Animate the gauge on load
-        window.addEventListener('load', function() {
-            const gauge = document.querySelector('.gauge-fill');
-            const tempValue = parseFloat('{{ prediction }}'.replace('°C', ''));
-            const percentage = Math.min((tempValue / 100) * 100, 100);
+    <div class="container">
+        <div class="result-container">
+            <h2>Temperature Prediction Result</h2>
             
-            setTimeout(() => {
-                gauge.style.setProperty('--temp-percentage', percentage + '%');
-                gauge.classList.add('animate');
-            }, 500);
-        });
-
-        // Add entrance animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.result-main-card, .info-cards');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.classList.add('animate-in');
-                }, index * 200);
-            });
-        });
-    </script>
+            <div class="prediction-result">
+                <h3>Predicted Rotor Temperature:</h3>
+                <div class="prediction-value">{{ prediction }}°C</div>
+            </div>
+            
+            <div class="button-group">
+                <a href="/" class="back-btn">Go Back</a>
+                <a href="/manual_predict" class="predict-again-btn">Predict Again</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

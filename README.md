@@ -53,8 +53,6 @@ This ML-based Flask app allows users to input real-time motor parameters and get
 | tzdata          | 2025.2    |
 | others          | click, colorama, MarkupSafe, etc.
 
----
-
 ## 🚀 How to Run Locally
 
 ### 1. Clone the Repository
@@ -111,4 +109,5 @@ You can use the following values to test the prediction:
 ## ✅ Sample Output
 ```
 Predicted Rotor Temperature: 74.38°C
-```
+
+
