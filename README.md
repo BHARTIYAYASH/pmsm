@@ -30,8 +30,7 @@ This ML-based Flask app allows users to input real-time motor parameters and get
 - Scikit-learn 1.6.1
 - Pandas 2.2.2
 - NumPy 2.0.2
-- Joblib for model serialization
-- HTML/CSS for frontend UI
+- Joblib for model serialization   
 
 ---
 
